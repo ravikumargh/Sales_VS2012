@@ -1,0 +1,218 @@
+<div ng-init="init()">
+    <h3>Clients</h3>
+    <div>
+        <button type="button" ng-click="openNewClientModel()" class="btn btn-sm btn-success">
+            <i class="glyphicon glyphicon-plus">
+            </i> Add
+        </button>
+        <table st-table="clients" st-safe-src="rowCollection" class="table table-striped">
+            <thead>
+                <tr>
+                    <th st-sort="firstName">Name</th>
+                    <th st-sort="firstName">Code</th>
+                    <th st-sort="firstName">Contact_FirstName</th>
+                    <th st-sort="firstName">Contact_LastName</th>
+                    <th st-sort="firstName">Contact_Email</th>
+                    <th st-sort="firstName">Address</th>
+                    <th st-sort="firstName">Client_Location</th>
+                    <th st-sort="firstName">Room_Number</th>
+                    <th st-sort="firstName">Phone</th>
+                    <th st-sort="firstName">Alternate_Phone</th>
+                    <th st-sort="firstName">Landline_Number</th>
+                    <th st-sort="firstName">Fax</th>
+                    <th st-sort="firstName">Client_Type</th>
+                    <th st-sort="firstName">Notes</th>
+                    <th st-sort="firstName">Comments</th>
+                </tr>
+                <!--<tr>
+                    <th colspan="5"><input st-search="" class="form-control" placeholder="global search ..." type="text" /></th>
+                </tr>-->
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in clients">
+                    <td>{{row.Client_Name}}</td>
+                    <td>{{row.Client_Code}}</td>
+                    <td>{{row.Contact_FirstName}}</td>
+                    <td>{{row.Contact_LastName}}</td>
+                    <td>{{row.Contact_Email}}</td>
+                    <td>{{row.Address}}</td>
+                    <td>{{row.Client_Location}}</td>
+                    <td>{{row.Room_Number}}</td>
+                    <td>{{row.Phone}}</td>
+                    <td>{{row.Alternate_Phone}}</td>
+                    <td>{{row.Landline_Number}}</td>
+                    <td>{{row.Fax}}</td>
+                    <td>{{row.Client_Type}}</td>
+                    <td>{{row.Notes}}</td>
+                    <td>{{row.Comments}}</td>
+                    <td>
+                        <button type="button" ng-click="editClientModel(row)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-pencil">
+                            </i>
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" ng-click="deleteClientModel(row)" class="btn btn-sm btn-danger">
+                            <i class="glyphicon glyphicon-remove-circle">
+                            </i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script type="text/ng-template" id="ClientModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">New client</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <div class="col-lg-6">
+                <label class="control-label" for="name">Name</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Client_Name" id="name" class="form-control" placeholder="Enter a client name" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <label class="control-label" for="name">Code</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Client_Code" id="name" class="form-control" placeholder="Enter a client code" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Contact FirstName</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Contact_FirstName" id="name" class="form-control" placeholder="Enter a Contact FirstName" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Contact LastName</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Contact_LastName" id="name" class="form-control" placeholder="Enter a Contact LastName" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Contact_Email</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Contact_Email" id="name" class="form-control" placeholder="Enter a Contact Email" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Address</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Address" id="name" class="form-control" placeholder="Enter a Address" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Client_Location</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Client_Location" id="name" class="form-control" placeholder="Enter a Client Location" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Room_Number</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Room_Number" id="name" class="form-control" placeholder="Enter a Room Number" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Phone</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Phone" id="name" class="form-control" placeholder="Enter a Phone" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Alternate Phone</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Alternate_Phone" id="name" class="form-control" placeholder="Enter a Alternate Phone" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Landline Number</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Landline_Number" id="name" class="form-control" placeholder="Enter a Landline Number" required>
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Fax</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Fax" id="name" class="form-control" placeholder="Enter a Fax" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Client_Type</label>
+                <div class="controls">
+                    <select ng-model="selectedClient.Client_Type" class="form-control">
+                        <option value="" ng-selected="selected">Select client type</option>
+                        <option value="{{clienttype.Id}}" ng-repeat="clienttype in clienttypes">{{clienttype.Name}}</option>
+                    </select>
+
+               <!--     <input type="text" data-ng-model="selectedClient.Client_Type" id="name" class="form-control" placeholder="Enter a Client_Type" required>-->
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <label class="control-label" for="name">Notes</label>
+                <div class="controls">
+                    <input type="text" data-ng-model="selectedClient.Notes" id="name" class="form-control" placeholder="Enter a Notes" required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="name">Comments</label>
+            <div class="controls">
+                <input type="text" data-ng-model="selectedClient.Comments" id="name" class="form-control" placeholder="Enter a Comments" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div data-ng-show="error" class="text-danger">
+                <strong data-ng-bind="error"></strong>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div class="modal-body">
+        Name : <input id="Text1" type="text" ng-model="newclient.Name" />
+        <br />
+         Code : <input id="Text1" type="text" ng-model="newclient.Code" />
+    </div>-->
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Save</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+<script type="text/ng-template" id="ClientDeleteConfirmationModalContent.html">
+    <div class="modal-body">
+        <h5>Are you sure you want to delte this item?</h5>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Delete</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
